@@ -1,0 +1,94 @@
+/* Общие стили */
+body {
+    background-image: url('../images/background.png');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    color: white;
+  }
+  
+  /* Логотип */
+  .top-left-image {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 100px;
+    height: auto;
+  }
+  
+  /* Контейнер формы */
+  .login-container {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 350px;
+  }
+  
+  /* Заголовок */
+  h1 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  /* Сообщения об ошибке */
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  ul li {
+    color: red;
+    font-size: 14px;
+  }
+  
+  /* Поля ввода */
+  input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    margin: 10px 0;
+    font-size: 16px;
+    background: #f7f7f7;
+  }
+  
+  /* Кнопка */
+  button {
+    width: 100%;
+    padding: 12px;
+    background: #0026ff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: 0.3s;
+  }
+  
+  button:hover {
+    background: #001acc;
+  }
+  
+  /* Ссылки */
+  p {
+    margin-top: 15px;
+  }
+  
+  p a {
+    text-decoration: none;
+    color: #0026ff;
+    font-size: 14px;
+  }
+  
+  p a:hover {
+    text-decoration: underline;
+  }

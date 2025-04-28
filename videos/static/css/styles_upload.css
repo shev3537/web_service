@@ -1,0 +1,91 @@
+/* Общие стили */
+body {
+    background-image: url('../images/background.png');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column; /* Изменено для вертикального расположения элементов */
+    justify-content: flex-start; /* Элементы будут выравнены по верхнему краю */
+    align-items: center; /* Центрирование по горизонтали */
+    font-family: Arial, sans-serif;
+    color: white;
+}
+.top-left-image {
+    position: absolute; /* Фиксированное положение */
+    top: 0; /* Отступ от верхнего края */
+    left: 0; /* Отступ от левого края */
+    width: 150px; /* Ширина изображения, измените при необходимости */
+    height: auto; /* Автоматическая высота для сохранения пропорций */
+}
+/* Навигация */
+.navigation {
+    margin-top: 20px; /* Отступ сверху для навигации */
+    text-align: center; /* Центрирование ссылок */
+}
+
+/* Заголовок */
+h1 {
+    font-size: 28px;
+    margin: 20px 0; /* Отступы сверху и снизу */
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+}
+
+/* Контейнер формы */
+form {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    max-width: 400px;
+    margin: 20px auto; /* Центрирование формы */
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    text-align: left;
+}
+
+/* Поля формы */
+form p {
+    margin-bottom: 15px;
+}
+
+/* Поля ввода */
+input, textarea, select {
+    width: calc(100% - 20px);
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    font-size: 14px;
+}
+
+/* Кнопки */
+button {
+    background: #ff4081;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background 0.3s, transform 0.2s;
+}
+
+button:hover {
+    background: #ff1744;
+    transform: translateY(-2px);
+}
+
+/* Ссылки */
+a {
+    color: #ff4081;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
+}

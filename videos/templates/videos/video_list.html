@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Список видео</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style2.css' %}">
+</head>
+<body>
+
+    <header>
+        <h1>Список видео</h1>
+        <a href="{% url 'home' %}" class="home-link">На главную</a>
+    </header>
+   
+    <div class="video-grid">
+        {% for video in videos %}
+            <div class="video-card">
+                <h2>{{ video.title }}</h2>
+
+                <!-- Видео -->
+                <div class="video-wrapper">
+                    <video controls>
+                        <source src="{{ video.video_file.url }}" type="video/mp4">
+                        Ваш браузер не поддерживает видео.
+                    </video>
+                </div>
+
+                <!-- Кнопка удаления -->
+                <form action="{% url 'delete_video' video.id %}" method="post">
+                    {% csrf_token %}
+                    <button type="submit" class="delete-btn">Удалить</button>
+                </form>
+
+                <!-- Комментарии -->
+                <div class="comments">
+                    <h3>Комментарии:</h3>
+                    <ul>
+                        {% for comment in video.comments.all %}
+                            <li>
+                                <strong>{{ comment.user.username }}</strong>: {{ comment.text }} 
+                                <em>({{ comment.created_at|date:"d M Y H:i" }})</em>
+                            </li>
+                        {% empty %}
+                            <li>Нет комментариев.</li>
+                        {% endfor %}
+                    </ul>
+
+                    {% if user.is_authenticated %}
+                        <form method="post" action="{% url 'add_comment' video.id %}">
+                            {% csrf_token %}
+                            <textarea name="text" required placeholder="Ваш комментарий..."></textarea>
+                            <button type="submit">Добавить комментарий</button>
+                        </form>
+                    {% else %}
+                        <p>Вы должны <a href="{% url 'login_view' %}">войти</a>, чтобы оставить комментарий.</p>
+                    {% endif %}
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+    <div class="pagination">
+        {% if videos.has_previous %}
+            <a href="?page=1">&laquo; Первая</a>
+            <a href="?page={{ videos.previous_page_number }}">Предыдущая</a>
+        {% endif %}
+
+        <span class="current">
+            Страница {{ videos.number }} из {{ videos.paginator.num_pages }}.
+        </span>
+
+        {% if videos.has_next %}
+            <a href="?page={{ videos.next_page_number }}">Следующая</a>
+            <a href="?page={{ videos.paginator.num_pages }}">Последняя &raquo;</a>
+        {% endif %}
+    </div>
+
+    {% if user.is_authenticated %}
+        <p><a href="{% url 'upload_video' %}" class="upload-link">Загрузить новое видео</a></p>
+    {% endif %}
+    <p><a href="{% url 'home' %}" class="home-link">На главную</a></p>
+
+</body>
+</html>

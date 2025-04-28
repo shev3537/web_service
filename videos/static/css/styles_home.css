@@ -1,0 +1,98 @@
+/* Общие стили */
+body {
+    background-image: url('../images/background.png');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column; /* Вертикальное расположение элементов */
+    align-items: center; /* Центрирование по горизонтали */
+    font-family: Arial, sans-serif;
+    color: black; /* Цвет текста изменен на черный */
+}
+
+.top-left-image {
+    position: absolute; /* Фиксированное положение */
+    top: 0; /* Отступ от верхнего края */
+    left: 0; /* Отступ от левого края */
+    width: 150px; /* Ширина изображения */
+    height: auto; /* Автоматическая высота для сохранения пропорций */
+}
+
+/* Навигация */
+.navigation {
+    margin: 20px 0; /* Отступы сверху и снизу */
+    text-align: center; /* Центрирование ссылок */
+}
+
+.navigation p {
+    margin: 0; /* Убираем отступы у параграфов */
+}
+
+/* Контейнер формы */
+.container {
+    width: 350px;
+    background: rgb(255, 255, 255); /* Цвет фона контейнера */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+/* Заголовок */
+h1 {
+    font-size: 22px;
+    margin-bottom: 20px;
+}
+
+/* Сообщения */
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+ul li {
+    color: red; /* Цвет текста для сообщений */
+    font-size: 14px;
+}
+
+/* Поля ввода */
+input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #22a102; /* Цвет границы */
+    border-radius: 5px;
+    margin: 10px 0;
+    font-size: 14px;
+    background: #f7f7f7; /* Цвет фона для полей ввода */
+    height: 35px;
+}
+
+/* Кнопка */
+button {
+    width: 100%;
+    padding: 10px;
+    background: #0026ff; /* Цвет фона кнопки */
+    color: white; /* Цвет текста кнопки */
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+button:hover {
+    background: #001acc; /* Цвет фона кнопки при наведении */
+}
+
+/* Ссылки */
+p a {
+    text-decoration: none;
+    color: #0026ff; /* Цвет ссылок */
+    font-size: 14px;
+}
+
+p a:hover {
+    text-decoration: underline; /* Подчеркивание ссылок при наведении */
+}

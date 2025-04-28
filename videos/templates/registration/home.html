@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Главная страница</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    {% load static %} <!-- Загрузка тега static -->
+    <link rel="stylesheet" href="{% static 'css/styles_home.css' %}"> <!-- Подключаем CSS файл -->
+</head>
+<body>
+    <img src="{% static 'images/yadro.png' %}" alt="Top Left Image" class="top-left-image"> <!-- Добавлено изображение d1.png -->
+    
+    <div class="container">
+        <header class="mt-5">
+            <h1>Добро пожаловать на YaTube!</h1>
+        </header>
+        <main class="mt-4">
+            <p>Данный сайт предоставляет возможность управления видеопотоком.</p>
+            
+            {% if user.is_authenticated %}
+                <p>Привет, <strong>{{ user.username }}</strong>!</p>
+                <form action="{% url 'logout' %}" method="post" style="display:inline;">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-danger">Выход</button>
+                </form>
+            {% else %}
+                <p>Вы не вошли в систему. Пожалуйста, <a href="{% url 'login_view' %}">войдите</a> или <a href="{% url 'register' %}">зарегистрируйтесь</a>.</p>
+            {% endif %}
+        </main>
+        <footer class="mt-5">
+            <p>&copy; 2025 Egor Shevchenko Web tehnology</p>
+            {% if user.is_authenticated %}
+                <p><a href="{% url 'upload_video' %}">Загрузить видео</a></p>
+            {% endif %}
+            <p><a href="{% url 'video_list' %}">Список видео</a></p>
+        </footer>
+    </div>
+</body>
+</html>
